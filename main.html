@@ -55,7 +55,8 @@
         <label for="fontcolor">Font Color:</label>
         <input type="color" id="fontcolor" value="#000000">
 
- <input type="submit" value="Save">    </form>
+        <button type="submit">Save</button>
+    </form>
 
     <script>
         function setPreferences() {
@@ -85,7 +86,7 @@
         function setCookie(name, value, days) {
             const expires = new Date();
             expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-            document.cookie = ${name}=${encodeURIComponent(value)}; expires=${expires.toUTCString()}; path=/;
+            document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + expires.toUTCString() + "; path=/";
         }
 
         document.getElementById("fontForm").addEventListener("submit", function(event) {
