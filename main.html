@@ -58,52 +58,7 @@
         <button type="submit">Save</button>
     </form>
 
-    <script>
-        function setPreferences() {
-            const fontSize = getCookie("fontsize");
-            const fontColor = getCookie("fontcolor");
-
-            if (fontSize) {
-                document.documentElement.style.setProperty("--fontsize", fontSize + "px");
-                document.getElementById("fontsize").value = fontSize;
-            }
-
-            if (fontColor) {
-                document.documentElement.style.setProperty("--fontcolor", fontColor);
-                document.getElementById("fontcolor").value = fontColor;
-            }
-        }
-
-        function getCookie(name) {
-            const cookies = document.cookie.split("; ");
-            for (let i = 0; i < cookies.length; i++) {
-                const [cookieName, cookieValue] = cookies[i].split("=");
-                if (cookieName === name) return decodeURIComponent(cookieValue);
-            }
-            return null;
-        }
-
-        function setCookie(name, value, days) {
-            const expires = new Date();
-            expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-            document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + expires.toUTCString() + "; path=/";
-        }
-
-        document.getElementById("fontForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            const fontSize = document.getElementById("fontsize").value;
-            const fontColor = document.getElementById("fontcolor").value;
-
-            setCookie("fontsize", fontSize, 365);
-            setCookie("fontcolor", fontColor, 365);
-
-            document.documentElement.style.setProperty("--fontsize", fontSize + "px");
-            document.documentElement.style.setProperty("--fontcolor", fontColor);
-        });
-
-        window.onload = setPreferences;
-    </script>
+    <script></script>
 
 </body>
 </html>
