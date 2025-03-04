@@ -14,7 +14,7 @@ function getCookie(name) {
 function setCookie(name, value, days = 365) {
     let expires = new Date();
     expires.setDate(expires.getDate() + days);
-    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
+    document.cookie = [`${name}=${encodeURIComponent(value)}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`];
 }
 
 // Function to apply saved preferences
