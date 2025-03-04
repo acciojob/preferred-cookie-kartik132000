@@ -10,11 +10,11 @@ function getCookie(name) {
     return null;
 }
 
-// Function to set a cookie
+// Function to set a cookie with Cypress-friendly attributes
 function setCookie(name, value, days = 365) {
     let expires = new Date();
     expires.setDate(expires.getDate() + days);
-    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires.toUTCString()}; path=/`;
+    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
 }
 
 // Function to apply saved preferences
@@ -49,10 +49,8 @@ function savePreferences(event) {
     applyPreferences(); // Apply changes immediately
 }
 
-// Fix: Change button selection to target both button and input[type='submit']
+// Ensure Cypress finds the correct button
 document.getElementById("fontForm").addEventListener("submit", savePreferences);
 
-// Ensure Cypress finds the correct button type
-const saveButton = document.querySelector("button[type='submit'], input[type='submit']");
-if (saveButton) {
-    saveButton.addEventListener("
+// Apply preferences on page load
+applyPreferences();
