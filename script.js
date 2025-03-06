@@ -25,7 +25,7 @@
         function setCookie(name, value, days = 365) {
             const date = new Date();
             date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-            document.cookie = `${name}=${encodeURIComponent(value)}; expires=${date.toUTCString()}; path=/`;
+            document.cookie = (`${name}=${encodeURIComponent(value)}; expires=${date.toUTCString()}; path=/`);
         }
 
         document.getElementById("customizationForm").addEventListener("submit", function(event) {
